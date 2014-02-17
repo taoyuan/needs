@@ -25,5 +25,5 @@ var libs = require('needs')(__dirname + '/libs');
 
 ##Reference Projects
 
-* [node-require-all](felixge/node-require-all)
-* [compound.js](1602/compound)
+* [node-require-all](http://github.com/felixge/node-require-all)
+* [compound.js](http://github.com/1602/compound)

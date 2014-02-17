@@ -1,0 +1,30 @@
+{
+  "name": "needs",
+  "version": "0.0.1",
+  "description": "Require multiple modules in node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/mocha/bin/mocha test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/taoyuan/needs.git"
+  },
+  "keywords": [
+    "require",
+    "multiple",
+    "module",
+    "node",
+    "load"
+  ],
+  "author": "Tao Yuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/taoyuan/needs/issues"
+  },
+  "homepage": "https://github.com/taoyuan/needs",
+  "devDependencies": {
+    "chai": "~1.9.0",
+    "mocha": "~1.17.1"
+  }
+}

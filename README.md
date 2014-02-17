@@ -1,9 +1,9 @@
 #needs
-====
+
 Require multiple modules in node.js.
 
 ##Usage
-====
+
 ```js
 var controllers = require('needs')(__dirname, 'controllers', {
 	filter: /(.+Controller)\.js$/,
@@ -24,6 +24,6 @@ var libs = require('needs')(__dirname + '/libs');
 ```
 
 ##Reference Projects
-====
+
 * [node-require-all](felixge/node-require-all)
 * [compound.js](1602/compound)

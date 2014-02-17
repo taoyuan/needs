@@ -15,7 +15,6 @@ var controllers = require('needs')(__dirname, 'controllers', {
 // controllers now is an object with references to all modules matching the filter
 // for example:
 // { HomeController: function HomeController() {...}, ...}
-
 ```
 
 or
@@ -23,14 +22,12 @@ or
 
 ```js
 var libs = require('needs')(__dirname, 'libs');
-
 ```
 
 or
 
 ```js
 var libs = require('needs')(__dirname + '/libs');
-
 ```
 
 ##Reference Projects

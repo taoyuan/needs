@@ -1,6 +1,6 @@
 {
   "name": "needs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Require multiple modules in node.js.",
   "main": "index.js",
   "scripts": {
@@ -26,5 +26,9 @@
   "devDependencies": {
     "chai": "~1.9.0",
     "mocha": "~1.17.1"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "minimatch": "~0.2.14"
   }
 }

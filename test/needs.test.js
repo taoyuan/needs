@@ -8,7 +8,7 @@ var root = __dirname + '/dirs';
 describe('needs', function () {
     it('requiring flatten directory', function () {
         var controllers = needs(root, 'controllers', {
-            filter: /(.+Controller)\.js$/
+            patterns: '*Controller.js'
         });
         t.deepEqual(controllers, {
             'main-Controller': {
@@ -27,7 +27,7 @@ describe('needs', function () {
 
     it('requiring json only became an option', function () {
         var mydir = needs(root, 'mydir', {
-            filter: /(.+)\.(js|json)$/
+            patterns: '+(*.js|*.json)'
         });
 
         var mydir_contents = {
@@ -51,21 +51,32 @@ describe('needs', function () {
 
     it('requiring with excludes', function () {
         var unfiltered = needs(root, 'filterdir', {
-            filter: /(.+)\.js$/
+            patterns: '*.js'
         });
 
         t.ok(unfiltered.root);
         t.ok(unfiltered.hello);
 
         var excludedSub = needs(root, 'filterdir', {
-            filter: /(.+)\.js$/,
-            excludes: /^(sub)$/
+            patterns: '*.js',
+            excludes: 'sub'
         });
 
         t.ok(excludedSub.root);
         t.equal(excludedSub.hello, undefined);
     });
 
+    it('requiring module modfile', function () {
+        var modules = needs(root, 'mydir', {
+            modfile: 'config.json'
+        });
+        t.deepEqual(modules, {
+            sub: {
+                settingA: 'A',
+                settingB: 'B'
+            }
+        });
+    });
 
     it('requiring modules that includes index.js file', function () {
         var modules = needs(root, 'modules');
@@ -77,4 +88,5 @@ describe('needs', function () {
             }
         });
     });
+
 });

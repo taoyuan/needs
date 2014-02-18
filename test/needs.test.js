@@ -66,10 +66,8 @@ describe('needs', function () {
         t.equal(excludedSub.hello, undefined);
     });
 
-    it('requiring module modfile', function () {
-        var modules = needs(root, 'mydir', {
-            modfile: 'config.json'
-        });
+    it('requiring common module file', function () {
+        var modules = needs(root, 'mydir', { module: 'config.json' });
         t.deepEqual(modules, {
             sub: {
                 settingA: 'A',
@@ -78,8 +76,8 @@ describe('needs', function () {
         });
     });
 
-    it('requiring modules that includes index.js file', function () {
-        var modules = needs(root, 'modules');
+    it('requiring node modules', function () {
+        var modules = needs(root, 'modules', { module: true });
         t.deepEqual(modules, {
             foo: 'bar',
             hello: {

@@ -87,13 +87,33 @@ describe('needs', function () {
         });
     });
 
-    it('requiring modules with filter', function () {
+    it('requiring modules with one parameter filter', function () {
         var modules = needs(root, 'modules', {
             module: true,
             filter: function (info) {
                 var mod = require(info.file);
                 if (typeof mod === 'object') mod.moduleName = info.name;
                 return mod;
+            }
+        });
+
+        t.deepEqual(modules, {
+            foo: 'bar',
+            hello: {
+                world: true,
+                universe: 42,
+                moduleName: "hello"
+            }
+        });
+    });
+
+    it('requiring modules with two parameter filter', function () {
+        var modules = needs(root, 'modules', {
+            module: true,
+            filter: function (result, info) {
+                var mod = require(info.file);
+                if (typeof mod === 'object') mod.moduleName = info.name;
+                result[info.name] = mod;
             }
         });
 

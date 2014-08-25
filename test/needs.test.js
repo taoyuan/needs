@@ -8,7 +8,7 @@ var root = __dirname + '/dirs';
 describe('needs', function () {
     it('requiring flatten directory', function () {
         var controllers = needs(root, 'controllers', {
-            patterns: '*Controller.js'
+            includes: '*Controller.js'
         });
         t.deepEqual(controllers, {
             'main-Controller': {
@@ -27,7 +27,7 @@ describe('needs', function () {
 
     it('requiring json only became an option', function () {
         var mydir = needs(root, 'mydir', {
-            patterns: '+(*.js|*.json)'
+            includes: '+(*.js|*.json)'
         });
 
         var mydir_contents = {
@@ -51,14 +51,14 @@ describe('needs', function () {
 
     it('requiring with excludes', function () {
         var unfiltered = needs(root, 'filterdir', {
-            patterns: '*.js'
+            includes: '*.js'
         });
 
         t.ok(unfiltered.root);
         t.ok(unfiltered.hello);
 
         var excludedSub = needs(root, 'filterdir', {
-            patterns: '*.js',
+            includes: '*.js',
             excludes: 'sub'
         });
 

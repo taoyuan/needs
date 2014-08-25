@@ -1,12 +1,22 @@
-#needs
+Needs
+=====
+[![NPM Version](https://img.shields.io/npm/v/needs.svg?style=flat)](https://www.npmjs.org/package/needs)
+[![Build Status](http://img.shields.io/travis/taoyuan/needs.svg?style=flat)](https://travis-ci.org/taoyuan/needs)
+[![Dependencies](https://img.shields.io/david/taoyuan/needs.svg?style=flat)](https://david-dm.org/taoyuan/needs)
 
 Require multiple modules in node.js.
+
+## Installation
+
+```bash
+$ npm install yetta
+```
 
 ##Usage
 
 ```js
 var controllers = require('needs')(__dirname, 'controllers', {
-	filter: /(.+Controller)\.js$/,
+	includes: /(.+Controller)\.js$/,
 	excludes: /^\.(git|svn)$/
 });
 
@@ -23,7 +33,11 @@ or:
 var libs = require('needs')(__dirname + '/libs');
 ```
 
-##Reference Projects
+##Links
 
 * [node-require-all](http://github.com/felixge/node-require-all)
-* [compound.js](http://github.com/1602/compound)
+
+## License
+
+Copyright (c) 2014 Tao Yuan
+Licensed under the MIT license.

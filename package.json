@@ -15,7 +15,8 @@
     "multiple",
     "module",
     "node",
-    "load"
+    "load",
+    "all"
   ],
   "author": "Tao Yuan",
   "license": "MIT",

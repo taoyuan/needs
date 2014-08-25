@@ -9,7 +9,7 @@ Require multiple modules in node.js.
 ## Installation
 
 ```bash
-$ npm install yetta
+$ npm install needs --save
 ```
 
 ##Usage

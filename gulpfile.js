@@ -1,11 +1,14 @@
 'use strict';
+
+var path = require('path');
 var gulp = require('gulp');
 var excludeGitignore = require('gulp-exclude-gitignore');
 var mocha = require('gulp-mocha');
 var jshint = require('gulp-jshint');
+var nsp = require('gulp-nsp');
 var istanbul = require('gulp-istanbul');
 var plumber = require('gulp-plumber');
-var nsp = require('gulp-nsp');
+var coveralls = require('gulp-coveralls');
 
 var handleErr = function (err) {
   console.log(err.message);
@@ -46,4 +49,13 @@ gulp.task('test', ['pre-test'], function (cb) {
     });
 });
 
-gulp.task('default', ['static', 'test']);
+gulp.task('coveralls', ['test'], function () {
+  if (!process.env.CI) {
+    return;
+  }
+
+  return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
+    .pipe(coveralls());
+});
+
+gulp.task('default', ['static', 'test', 'coveralls']);

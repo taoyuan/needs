@@ -32,6 +32,7 @@
     "chai": "~3.2.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.0",
+    "gulp-coveralls": "^0.1.4",
     "gulp-exclude-gitignore": "^1.0.0",
     "gulp-istanbul": "^0.10.0",
     "gulp-jscs": "^2.0.0",

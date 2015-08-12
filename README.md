@@ -2,6 +2,8 @@ Needs
 =====
 [![NPM Version](https://img.shields.io/npm/v/needs.svg?style=flat)](https://www.npmjs.org/package/needs)
 [![Build Status](http://img.shields.io/travis/taoyuan/needs.svg?style=flat)](https://travis-ci.org/taoyuan/needs)
+[![Coverage](https://coveralls.io/repos/taoyuan/needs/badge.svg?branch=master)](https://coveralls.io/r/taoyuan/needs)
+[![Quality](https://codeclimate.com/github/taoyuan/needs/badges/gpa.svg)](https://codeclimate.com/github/taoyuan/needs)
 [![Dependencies](https://img.shields.io/david/taoyuan/needs.svg?style=flat)](https://david-dm.org/taoyuan/needs)
 
 Require multiple modules in node.js.

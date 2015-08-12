@@ -1,5 +1,7 @@
+'use strict';
+
 var chai = require('chai');
-chai.Assertion.includeStack = true;
+chai.config.includeStack = true;
 var t = chai.assert;
 var needs = require('..');
 
@@ -25,7 +27,7 @@ describe('needs', function () {
     });
   });
 
-  it('requiring RegExp patterns', function () {
+  it('requiring regexp patterns', function () {
     var controllers = needs(root, 'controllers', {
       includes: /(.+Controller)\.js$/,
       excludes: /^\.(git|svn)$/
@@ -144,6 +146,60 @@ describe('needs', function () {
         universe: 42,
         moduleName: "hello"
       }
+    });
+  });
+
+  it('should needs with many dir partials', function () {
+    var unfiltered = needs(root + '/filterdir', {
+      includes: '*.js'
+    });
+
+    t.ok(unfiltered.root);
+    t.ok(unfiltered.hello);
+
+    unfiltered = needs(root, 'filterdir', {
+      includes: '*.js'
+    });
+
+    t.ok(unfiltered.root);
+    t.ok(unfiltered.hello);
+
+    unfiltered = needs(root + '/..', 'dirs', 'filterdir', {
+      includes: '*.js'
+    });
+
+    t.ok(unfiltered.root);
+    t.ok(unfiltered.hello);
+
+    unfiltered = needs(root + '/../..', 'test', 'dirs', 'filterdir', {
+      includes: '*.js'
+    });
+
+    t.ok(unfiltered.root);
+    t.ok(unfiltered.hello);
+
+    unfiltered = needs(root + '/../../..', 'needs', 'test', 'dirs', 'filterdir', {
+      includes: '*.js'
+    });
+
+    t.ok(unfiltered.root);
+    t.ok(unfiltered.hello);
+  });
+
+  it('should support `!` for exclusion in pattern', function () {
+    var unfiltered = needs(root + '/filterdir', {
+      includes: ['*.js', '!hello.js']
+    });
+
+    t.ok(unfiltered.root);
+    t.notOk(unfiltered.hello);
+  });
+
+  it('should throw error for invalid pattern', function () {
+    t.throw(function () {
+      needs(root + '/filterdir', {
+        includes: {}
+      });
     });
   });
 

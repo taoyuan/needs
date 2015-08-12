@@ -19,7 +19,9 @@ $ npm install needs --save
 ### RegExp pattern
 
 ```js
-require('needs')(__dirname, 'controllers', {
+var needs = require('needs');
+
+needs(__dirname, 'controllers', {
 	includes: /(.+Controller)\.js$/,
 	excludes: /^\.(git|svn)$/
 });
@@ -28,11 +30,13 @@ require('needs')(__dirname, 'controllers', {
 // for example:
 // { HomeController: function HomeController() {...}, ...}
 
+```
+
 ### Minimatch string pattern
 
 ```js
 // or using minimatch string
-require('needs')(__dirname, 'controllers', {
+needs(__dirname, 'controllers', {
 	includes: '+(*.js|*.json)',
 	excludes: '+(*.git|*.svn)'
 });
@@ -41,7 +45,7 @@ require('needs')(__dirname, 'controllers', {
 ### Array includes and excludes 
 
 ```js
-require('needs')(__dirname, 'controllers', {
+needs(__dirname, 'controllers', {
 	includes: ['*.js', '*.json'],
 	excludes: ['*.git', '*.svn']
 });
@@ -50,16 +54,16 @@ require('needs')(__dirname, 'controllers', {
 ### Array pattern
 
 ```js
-require('needs')(__dirname, 'controllers', ['*.js', '*.json']);
+needs(__dirname, 'controllers', ['*.js', '*.json']);
 ```
 
 ### Simplest way to include and exclude
 
 ```js
-require('needs')(__dirname, 'controllers', ['*.js', '*.json', '!*.git', '!*.svn']);
+needs(__dirname, 'controllers', ['*.js', '*.json', '!*.git', '!*.svn']);
 
 // or default includes ['*.js', '*.json'] and excludes ['!*.git', '!*.svn']
-require('needs')(__dirname, 'controllers');
+needs(__dirname, 'controllers');
 ```
 
 ##Links

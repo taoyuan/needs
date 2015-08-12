@@ -14,10 +14,12 @@ Require multiple modules in node.js.
 $ npm install needs --save
 ```
 
-##Usage
+## Usage
+
+### RegExp pattern
 
 ```js
-var controllers = require('needs')(__dirname, 'controllers', {
+require('needs')(__dirname, 'controllers', {
 	includes: /(.+Controller)\.js$/,
 	excludes: /^\.(git|svn)$/
 });
@@ -25,14 +27,39 @@ var controllers = require('needs')(__dirname, 'controllers', {
 // controllers now is an object with references to all modules matching the filter
 // for example:
 // { HomeController: function HomeController() {...}, ...}
-```
-or:
+
+### Minimatch string pattern
+
 ```js
-var libs = require('needs')(__dirname, 'libs');
+// or using minimatch string
+require('needs')(__dirname, 'controllers', {
+	includes: '+(*.js|*.json)',
+	excludes: '+(*.git|*.svn)'
+});
 ```
-or:
+
+### Array includes and excludes 
+
 ```js
-var libs = require('needs')(__dirname + '/libs');
+require('needs')(__dirname, 'controllers', {
+	includes: ['*.js', '*.json'],
+	excludes: ['*.git', '*.svn']
+});
+```
+
+### Array pattern
+
+```js
+require('needs')(__dirname, 'controllers', ['*.js', '*.json']);
+```
+
+### Simplest way to include and exclude
+
+```js
+require('needs')(__dirname, 'controllers', ['*.js', '*.json', '!*.git', '!*.svn']);
+
+// or default includes ['*.js', '*.json'] and excludes ['!*.git', '!*.svn']
+require('needs')(__dirname, 'controllers');
 ```
 
 ##Links

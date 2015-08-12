@@ -1,6 +1,6 @@
 {
   "name": "needs",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Require multiple modules in node.js.",
   "main": "index.js",
   "scripts": {
@@ -25,11 +25,11 @@
   },
   "homepage": "https://github.com/taoyuan/needs",
   "devDependencies": {
-    "chai": "~2.3.0",
+    "chai": "~3.1.0",
     "mocha": "~2.2.5"
   },
   "dependencies": {
-    "lodash": "~3.8.0",
-    "minimatch": "~2.0.7"
+    "lodash": "~3.10.0",
+    "minimatch": "~2.0.8"
   }
 }

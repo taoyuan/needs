@@ -195,6 +195,14 @@ describe('needs', function () {
     t.notOk(unfiltered.hello);
   });
 
+  it('should support array string patterns', function () {
+    var unfiltered = needs(root + '/filterdir', ['*.js', '!hello.js']);
+
+    t.ok(unfiltered.root);
+    t.notOk(unfiltered.hello);
+  });
+
+
   it('should throw error for invalid pattern', function () {
     t.throw(function () {
       needs(root + '/filterdir', {

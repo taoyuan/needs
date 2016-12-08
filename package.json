@@ -25,11 +25,11 @@
   },
   "homepage": "https://github.com/taoyuan/needs",
   "devDependencies": {
-    "chai": "~3.1.0",
-    "mocha": "~2.2.5"
+    "chai": "~3.5.0",
+    "mocha": "~3.2.0"
   },
   "dependencies": {
-    "lodash": "~3.10.0",
-    "minimatch": "~2.0.8"
+    "lodash": "~4.17.2",
+    "minimatch": "~3.0.3"
   }
 }

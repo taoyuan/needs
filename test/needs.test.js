@@ -1,6 +1,4 @@
-var chai = require('chai');
-chai.Assertion.includeStack = true;
-var t = chai.assert;
+var assert = require('chai').assert;
 var needs = require('..');
 
 var root = __dirname + '/dirs';
@@ -10,7 +8,7 @@ describe('needs', function () {
         var controllers = needs(root, 'controllers', {
             includes: '*Controller.js'
         });
-        t.deepEqual(controllers, {
+        assert.deepEqual(controllers, {
             'main-Controller': {
                 index: 1,
                 show: 2,
@@ -42,11 +40,11 @@ describe('needs', function () {
             },
             yes: true
         };
-        t.deepEqual(mydir, mydir_contents);
+        assert.deepEqual(mydir, mydir_contents);
 
         var defaults = needs(root, 'mydir');
 
-        t.deepEqual(defaults, mydir_contents);
+        assert.deepEqual(defaults, mydir_contents);
     });
 
     it('requiring with excludes', function () {
@@ -54,21 +52,21 @@ describe('needs', function () {
             includes: '*.js'
         });
 
-        t.ok(unfiltered.root);
-        t.ok(unfiltered.hello);
+        assert.ok(unfiltered.root);
+        assert.ok(unfiltered.hello);
 
         var excludedSub = needs(root, 'filterdir', {
             includes: '*.js',
             excludes: 'sub'
         });
 
-        t.ok(excludedSub.root);
-        t.equal(excludedSub.hello, undefined);
+        assert.ok(excludedSub.root);
+        assert.equal(excludedSub.hello, undefined);
     });
 
     it('requiring common module file', function () {
         var modules = needs(root, 'mydir', { module: 'config.json' });
-        t.deepEqual(modules, {
+        assert.deepEqual(modules, {
             sub: {
                 settingA: 'A',
                 settingB: 'B'
@@ -78,7 +76,7 @@ describe('needs', function () {
 
     it('requiring node modules', function () {
         var modules = needs(root, 'modules', { module: true });
-        t.deepEqual(modules, {
+        assert.deepEqual(modules, {
             foo: 'bar',
             hello: {
                 world: true,
@@ -97,7 +95,7 @@ describe('needs', function () {
             }
         });
 
-        t.deepEqual(modules, {
+        assert.deepEqual(modules, {
             foo: 'bar',
             hello: {
                 world: true,
@@ -117,7 +115,7 @@ describe('needs', function () {
             }
         });
 
-        t.deepEqual(modules, {
+        assert.deepEqual(modules, {
             foo: 'bar',
             hello: {
                 world: true,

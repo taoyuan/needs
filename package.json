@@ -4,7 +4,7 @@
   "description": "Require multiple modules in node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "./node_modules/.bin/mocha test/**/*.test.js"
   },
   "repository": {
     "type": "git",
@@ -30,15 +30,6 @@
   },
   "devDependencies": {
     "chai": "~3.5.0",
-    "eslint-config-xo-space": "^0.10.0",
-    "gulp": "^3.9.1",
-    "gulp-coveralls": "^0.1.4",
-    "gulp-eslint": "^2.0.0",
-    "gulp-exclude-gitignore": "^1.0.0",
-    "gulp-istanbul": "^0.10.3",
-    "gulp-mocha": "^2.2.0",
-    "gulp-nsp": "^2.3.0",
-    "gulp-plumber": "^1.1.0",
     "mocha": "~2.4.5"
   }
 }

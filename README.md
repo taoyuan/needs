@@ -4,7 +4,7 @@ Needs
 [![Build Status](http://img.shields.io/travis/taoyuan/needs.svg?style=flat)](https://travis-ci.org/taoyuan/needs)
 [![Coverage](https://coveralls.io/repos/taoyuan/needs/badge.svg?branch=master)](https://coveralls.io/r/taoyuan/needs)
 [![Quality](https://codeclimate.com/github/taoyuan/needs/badges/gpa.svg)](https://codeclimate.com/github/taoyuan/needs)
-[![Dependencies](https://img.shields.io/david/taoyuan/needs.svg?style=flat)](https://david-dm.org/taoyuan/needs)
+[![Dependencies](https://img.shields.io/david/taoyuan/needs.svg?style=flat)](https://david-dm.org/taoyuan/needs) [![Greenkeeper badge](https://badges.greenkeeper.io/taoyuan/needs.svg)](https://greenkeeper.io/)
 
 Require multiple modules in node.js.
 
